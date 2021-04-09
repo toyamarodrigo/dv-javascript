@@ -1,11 +1,16 @@
-const playerChoiceElement = document.getElementById("playerChoice");
-const computerChoiceElement = document.getElementById("computerChoice");
+const playerChoiceElement = document.getElementById('playerChoice');
+const computerChoiceElement = document.getElementById('computerChoice');
 
-const resultElement = document.getElementById("result");
+const resultElement = document.getElementById('result');
+const counterElement = document.getElementById('counter');
+const numCounterElement = document.getElementById('num-counter');
 
-const buttons = document.querySelectorAll("button");
+const buttons = document.querySelectorAll('button');
 
-buttons.forEach((button) => button.addEventListener("click", startGame));
+var wonCounter = 0;
+var lostCounter = 0;
+
+buttons.forEach((button) => button.addEventListener('click', startGame));
 
 function startGame(event) {
   // Obtener elección del jugador
@@ -16,27 +21,33 @@ function startGame(event) {
   const computerChoice = getComputerChoice();
 
   // Calcular ganador
-  //const playerWins = isPlayerWinner(playerChoice, computerChoice);
   const winner = setWinner(playerChoice, computerChoice);
 
+  if (winner === 'WON') {
+    wonCounter++;
+  } else if (winner === 'LOST') {
+    lostCounter++;
+  }
+
   // Mostrar resultado
-  playerChoiceElement.setAttribute("src", `imgs/${playerChoice}.png`);
-  computerChoiceElement.setAttribute("src", `imgs/${computerChoice}.png`);
+  playerChoiceElement.setAttribute('src', `imgs/${playerChoice}.png`);
+  computerChoiceElement.setAttribute('src', `imgs/${computerChoice}.png`);
 
-  // const result = playerWins ? "GANASTE" : "PERDISTE";
+  // You won N times. You lost N times
+  counterElement.textContent = `You won ${wonCounter} times. You lost ${lostCounter} times`;
+  resultElement.textContent = `You ${winner} with ${playerChoice} against ${computerChoice}`;
+  numCounterElement.textContent = `${wonCounter} - ${lostCounter}`;
 
-  //   if (playerWins === true) {
-  //     result.textContent = "GANASTE";
-  //   } else if (!playerWins) {
-  //     result.textContent = "PERDISTE";
-  //   } else if (playerWins === "draw") {
-  //     result.textContent = "EMPATASTE";
-  //   }
-
-  resultElement.textContent = winner;
+  if (wonCounter === 3) {
+    numCounterElement.textContent = `You WON :D ${wonCounter} - ${lostCounter}`;
+    resetGame();
+  } else if (lostCounter === 3) {
+    numCounterElement.textContent = `You LOST :( ${lostCounter} - ${wonCounter}`;
+    resetGame();
+  }
 }
 
-const possibleChoices = ["rock", "paper", "scissors"];
+const possibleChoices = ['rock', 'paper', 'scissors'];
 
 function getComputerChoice() {
   // Obtener un valor aleatorio
@@ -48,17 +59,21 @@ function getComputerChoice() {
 
 // Antes: isPlayerWinner
 function setWinner(playerChoice, computerChoice) {
-  console.log("playerChoice", playerChoice);
-  console.log("computerChoice", computerChoice);
   if (
-    (playerChoice === "rock" && computerChoice === "scissors") ||
-    (playerChoice === "paper" && computerChoice === "rock") ||
-    (playerChoice === "scissors" && computerChoice === "paper")
+    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'paper' && computerChoice === 'rock') ||
+    (playerChoice === 'scissors' && computerChoice === 'paper')
   ) {
-    return "GANASTE";
+    return 'WON';
   } else if (playerChoice === computerChoice) {
-    return "EMPATASTE";
+    return 'DRAW';
   } else {
-    return "PERDISTE";
+    return 'LOST';
   }
+}
+
+function resetGame() {
+  wonCounter = 0;
+  lostCounter = 0;
+  startGame;
 }
