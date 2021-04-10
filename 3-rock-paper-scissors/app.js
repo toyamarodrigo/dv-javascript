@@ -4,6 +4,7 @@ const computerChoiceElement = document.getElementById('computerChoice');
 const resultElement = document.getElementById('result');
 const counterElement = document.getElementById('counter');
 const numCounterElement = document.getElementById('num-counter');
+const finalResultElement = document.getElementById('final-result');
 
 const buttons = document.querySelectorAll('button');
 
@@ -13,6 +14,8 @@ var lostCounter = 0;
 buttons.forEach((button) => button.addEventListener('click', startGame));
 
 function startGame(event) {
+  finalResultElement.textContent = '';
+
   // Obtener elección del jugador
   const button = event.currentTarget;
   const playerChoice = button.dataset.choice;
@@ -34,15 +37,15 @@ function startGame(event) {
   computerChoiceElement.setAttribute('src', `imgs/${computerChoice}.png`);
 
   // You won N times. You lost N times
-  counterElement.textContent = `You won ${wonCounter} times. You lost ${lostCounter} times`;
   resultElement.textContent = `You ${winner} with ${playerChoice} against ${computerChoice}`;
+  counterElement.textContent = `You won ${wonCounter} times. You lost ${lostCounter} times`;
   numCounterElement.textContent = `${wonCounter} - ${lostCounter}`;
 
   if (wonCounter === 3) {
-    numCounterElement.textContent = `You WON :D ${wonCounter} - ${lostCounter}`;
+    finalResultElement.textContent = `😁 You WON 😁`;
     resetGame();
   } else if (lostCounter === 3) {
-    numCounterElement.textContent = `You LOST :( ${lostCounter} - ${wonCounter}`;
+    finalResultElement.textContent = `😭 You LOST 😭`;
     resetGame();
   }
 }

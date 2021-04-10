@@ -8,24 +8,25 @@
     <title>Rock, Paper or Scissors</title>
   </head>
   <body>
-    <div class="wrapper">
-      <section id="computer-zone">
-        <img id="computerChoice" src="imgs/paper.png" alt="paper" />
-      </section>
+    <div class="wrapper-container">
+      <div class="wrapper">
+        <section id="computer-zone">
+          <img id="computerChoice" src="imgs/paper.png" alt="paper" />
+        </section>
 
-      <!-- <p id="result">PERDISTE</p> -->
+        <!-- Y SI SE ANIMAN -->
+        <p id="num-counter">0 - 0</p>
+        <!-- EL PRIMERO QUE LLEGA A 3 ES EL GANADOR -->
 
-      <!-- TAREA -->
-      <p id="result"></p>
-      <p id="counter"></p>
+        <section id="player-zone">
+          <img id="playerChoice" src="imgs/rock.png" alt="rock" />
+        </section>
+      </div>
 
-      <!-- Y SI SE ANIMAN -->
-      <p id="num-counter">0 - 0</p>
-      <!-- EL PRIMERO QUE LLEGA A 3 ES EL GANADOR -->
-
-      <section id="player-zone">
-        <img id="playerChoice" src="imgs/rock.png" alt="rock" />
-      </section>
+      <div class="result-container">
+        <p id="result"></p>
+        <p id="counter"></p>
+      </div>
 
       <section>
         <button data-choice="rock">
@@ -38,6 +39,10 @@
           <img src="imgs/scissors.png" alt="scissors" />
         </button>
       </section>
+      
+      <div class="final-result">
+        <p id="final-result"></p>
+      </div>
     </div>
 
     <script src="app.js"></script>
