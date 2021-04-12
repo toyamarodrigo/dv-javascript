@@ -26,12 +26,6 @@ function startGame(event) {
   // Calcular ganador
   const winner = setWinner(playerChoice, computerChoice);
 
-  if (winner === 'WON') {
-    wonCounter++;
-  } else if (winner === 'LOST') {
-    lostCounter++;
-  }
-
   // Mostrar resultado
   playerChoiceElement.setAttribute('src', `imgs/${playerChoice}.png`);
   computerChoiceElement.setAttribute('src', `imgs/${computerChoice}.png`);
@@ -67,10 +61,12 @@ function setWinner(playerChoice, computerChoice) {
     (playerChoice === 'paper' && computerChoice === 'rock') ||
     (playerChoice === 'scissors' && computerChoice === 'paper')
   ) {
+    wonCounter++;
     return 'WON';
   } else if (playerChoice === computerChoice) {
     return 'DRAW';
   } else {
+    lostCounter++;
     return 'LOST';
   }
 }
