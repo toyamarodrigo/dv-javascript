@@ -8,6 +8,7 @@ const finalResultElement = document.getElementById('final-result');
 
 const buttons = document.querySelectorAll('button');
 
+// Variables contador
 var wonCounter = 0;
 var lostCounter = 0;
 
@@ -35,6 +36,7 @@ function startGame(event) {
   counterElement.textContent = `You won ${wonCounter} times. You lost ${lostCounter} times`;
   numCounterElement.textContent = `${wonCounter} - ${lostCounter}`;
 
+  // Ganador / Perdedor 
   if (wonCounter === 3) {
     finalResultElement.textContent = `😁 You WON 😁`;
     resetGame();
@@ -71,6 +73,7 @@ function setWinner(playerChoice, computerChoice) {
   }
 }
 
+// Funcion reseteo
 function resetGame() {
   wonCounter = 0;
   lostCounter = 0;
