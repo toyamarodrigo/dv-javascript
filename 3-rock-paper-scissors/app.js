@@ -28,25 +28,26 @@ function startGame(event) {
   const winner = setWinner(playerChoice, computerChoice);
 
   // Mostrar resultado
-  playerChoiceElement.setAttribute('src', `imgs/${playerChoice}.png`);
-  computerChoiceElement.setAttribute('src', `imgs/${computerChoice}.png`);
+  playerChoiceElement.setAttribute('src', `images/${playerChoice}.png`);
+  computerChoiceElement.setAttribute('src', `images/${computerChoice}.png`);
 
   // You won N times. You lost N times
   resultElement.textContent = `You ${winner} with ${playerChoice} against ${computerChoice}`;
   counterElement.textContent = `You won ${wonCounter} times. You lost ${lostCounter} times`;
   numCounterElement.textContent = `${wonCounter} - ${lostCounter}`;
+  finalResultElement.style.background = 'transparent';
 
-  // Ganador / Perdedor 
+  // Ganador / Perdedor
   if (wonCounter === 3) {
-    finalResultElement.textContent = `😁 You WON 😁`;
+    modalResult('WON');
     resetGame();
   } else if (lostCounter === 3) {
-    finalResultElement.textContent = `😭 You LOST 😭`;
+    modalResult('LOST');
     resetGame();
   }
 }
 
-const possibleChoices = ['rock', 'paper', 'scissors'];
+const possibleChoices = ['rock', 'paper', 'scissor'];
 
 function getComputerChoice() {
   // Obtener un valor aleatorio
@@ -59,9 +60,9 @@ function getComputerChoice() {
 // Antes: isPlayerWinner
 function setWinner(playerChoice, computerChoice) {
   if (
-    (playerChoice === 'rock' && computerChoice === 'scissors') ||
+    (playerChoice === 'rock' && computerChoice === 'scissor') ||
     (playerChoice === 'paper' && computerChoice === 'rock') ||
-    (playerChoice === 'scissors' && computerChoice === 'paper')
+    (playerChoice === 'scissor' && computerChoice === 'paper')
   ) {
     wonCounter++;
     return 'WON';
@@ -78,4 +79,22 @@ function resetGame() {
   wonCounter = 0;
   lostCounter = 0;
   startGame;
+}
+
+function modalResult(result) {
+  if (result !== 'LOST') {
+    emoji = '😁';
+    backColor = 'green';
+    fontColor = 'white';
+  } else {
+    emoji = '😭';
+    backColor = 'red';
+    fontColor = 'black';
+  }
+  finalResultElement.style.transition = 'all 0.5s';
+  finalResultElement.textContent = `${emoji} You ${result} ${emoji}`;
+  finalResultElement.style.backgroundColor = `${backColor}`;
+  finalResultElement.style.color = `${fontColor}`;
+  finalResultElement.style.padding = '40px';
+  finalResultElement.style.borderRadius = '5px';
 }

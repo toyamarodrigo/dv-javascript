@@ -4,21 +4,67 @@
   box-sizing: border-box;
 }
 
+@font-face {
+  font-family: 'Fedora';
+  src: url('./font/SF\ Fedora.ttf') format('truetype');
+}
+
 body {
   width: 100vw;
-  height: 100vh;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   font-family: 'Poppins', sans-serif;
-  background-color: black;
+  background-color: rgb(15, 15, 15);
+  color: white;
 }
 
 .wrapper-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+}
+
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  width: 100%;
+}
+
+.logo-container {
+  display: flex;
+  margin-top: 20px;
+  margin-right: 60px;
+}
+
+.logo-container img {
+  width: 500px;
+}
+
+.wrapper {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  padding: 50px;
+}
+
+.points-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-direction: row;
+  width: 600px;
+  margin: 20px 0;
+}
+
+.player-zone {
+  display: flex;
+  align-items: center;
+  background-color: white;
 }
 
 #computerChoice,
@@ -27,26 +73,60 @@ body {
   height: auto;
 }
 
-.wrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-evenly;
-  align-items: center;
+#num-counter {
+  color: white;
+  font-size: 4rem;
+  font-weight: bold;
+  font-family: 'Fedora';
+}
 
-  border: 1px solid white;
-  padding: 10px;
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 100%;
+  margin: 20px 0;
+  padding: 20px 0;
+}
+
+button {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  padding: 30px;
+  margin: 15px;
+  transition: all 0.5s;
+}
+
+button:hover {
+  transform: translatey(-5px);
+  border: none;
+}
+
+.button-container button img {
+  width: 50px;
+  height: auto;
 }
 
 .result-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
   text-align: center;
-  padding: 40px 0;
 }
 
 .result-container p {
-  margin: 10px 0 ;
+  margin: 10px 0;
+  font-family: 'Fedora';
 }
 
 #result {
@@ -60,21 +140,13 @@ body {
   font-weight: bold;
 }
 
-#num-counter {
-  color: white;
-  font-size: 2rem;
-  font-weight: bold;
+.final-result {
+  position: absolute;
+  top: 20%;
 }
 
 #final-result {
-  margin-top: 40px;
   text-align: center;
   color: white;
   font-size: 3rem;
-}
-
-button {
-  border-radius: 50%;
-  padding: 20px;
-  margin: 15px;
 }

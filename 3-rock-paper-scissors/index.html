@@ -14,19 +14,42 @@
   </head>
   <body>
     <div class="wrapper-container">
-      <div class="wrapper">
-        <!-- Seleccion de PC -->
-        <section id="computer-zone">
-          <img id="computerChoice" src="imgs/paper.png" alt="paper" />
-        </section>
+      <div class="game-container">
+        <div class="logo-container">
+          <img src="./images/logo.svg" alt="logo-game" />
+        </div>
 
-        <!-- Contador de Player y PC -->
-        <p id="num-counter">0 - 0</p>
+        <div class="wrapper">
+          <div class="points-container">
+            <!-- Seleccion de Player -->
+            <section id="player-zone">
+              <img id="playerChoice" src="images/rock.png" alt="rock" />
+              <h3>Player</h3>
+            </section>
 
-        <!-- Seleccion de Player -->
-        <section id="player-zone">
-          <img id="playerChoice" src="imgs/rock.png" alt="rock" />
-        </section>
+            <!-- Contador de Player y PC -->
+            <p id="num-counter">0 - 0</p>
+
+            <!-- Seleccion de PC -->
+            <section id="computer-zone">
+              <img id="computerChoice" src="images/paper.png" alt="paper" />
+              <h3>PC</h3>
+            </section>
+          </div>
+
+          <!-- Buttons Rock, Paper, Scissors -->
+          <section class="button-container">
+            <button data-choice="rock">
+              <img src="images/rock.png" alt="rock" />
+            </button>
+            <button data-choice="paper">
+              <img src="images/paper.png" alt="paper" />
+            </button>
+            <button data-choice="scissors">
+              <img src="images/scissor.png" alt="scissors" />
+            </button>
+          </section>
+        </div>
       </div>
 
       <!-- Resultado de cada partida -->
@@ -34,19 +57,6 @@
         <p id="result"></p>
         <p id="counter"></p>
       </div>
-
-      <!-- Buttons Rock, Paper, Scissors -->
-      <section class="button-container">
-        <button data-choice="rock">
-          <img src="imgs/rock.png" alt="rock" />
-        </button>
-        <button data-choice="paper">
-          <img src="imgs/paper.png" alt="paper" />
-        </button>
-        <button data-choice="scissors">
-          <img src="imgs/scissors.png" alt="scissors" />
-        </button>
-      </section>
 
       <!-- Mensaje de Resultado final -->
       <div class="final-result">
