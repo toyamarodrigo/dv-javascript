@@ -59,12 +59,14 @@ body {
   flex-direction: row;
   width: 600px;
   margin: 20px 0;
+  padding: 10px;
 }
 
-.player-zone {
+#player-zone {
   display: flex;
+  flex-direction: column;
+  height: 100%;
   align-items: center;
-  background-color: white;
 }
 
 #computerChoice,
