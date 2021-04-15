@@ -62,11 +62,13 @@ body {
   padding: 10px;
 }
 
-#player-zone {
+#player-zone,
+#computer-zone {
   display: flex;
   flex-direction: column;
   height: 100%;
   align-items: center;
+  justify-content: space-evenly;
 }
 
 #computerChoice,
