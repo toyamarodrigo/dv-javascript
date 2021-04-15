@@ -19,6 +19,32 @@ body {
   color: white;
 }
 
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 2rem;
+}
+
+h3 {
+  text-align: center;
+}
+
+button {
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  padding: 30px;
+  margin: 15px;
+  transition: all 0.5s;
+}
+
+button:hover {
+  transform: translatey(-5px);
+  border: none;
+}
+
 .wrapper-container {
   position: relative;
   display: flex;
@@ -35,6 +61,10 @@ body {
   width: 100%;
 }
 
+/*********************************/
+/************* Logo  *************/
+/*********************************/
+
 .logo-container {
   display: flex;
   margin-top: 20px;
@@ -44,6 +74,10 @@ body {
 .logo-container img {
   width: 500px;
 }
+
+/*********************************/
+/************ Puntos *************/
+/*********************************/
 
 .wrapper {
   display: flex;
@@ -84,17 +118,9 @@ body {
   font-family: 'Fedora';
 }
 
-h1 {
-  font-size: 5rem;
-}
-
-h2 {
-  font-size: 2rem;
-}
-
-h3 {
-  text-align: center;
-}
+/************************************/
+/** Botones Rock - Paper - Scissor **/ 
+/************************************/
 
 .button-container {
   display: flex;
@@ -105,24 +131,14 @@ h3 {
   padding: 20px 0;
 }
 
-button {
-  height: 100%;
-  width: 100%;
-  border-radius: 50%;
-  padding: 30px;
-  margin: 15px;
-  transition: all 0.5s;
-}
-
-button:hover {
-  transform: translatey(-5px);
-  border: none;
-}
-
 .button-container button img {
   width: 50px;
   height: auto;
 }
+
+/*********************************/
+/******* Texto Resultado *********/
+/*********************************/
 
 .result-container {
   text-align: center;
@@ -143,6 +159,10 @@ button:hover {
   font-size: 2rem;
   font-weight: bold;
 }
+
+/*********************************/
+/***** Modal Resultado Final *****/
+/*********************************/
 
 .final-result {
   position: absolute;

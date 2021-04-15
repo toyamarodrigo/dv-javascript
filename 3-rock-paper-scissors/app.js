@@ -81,6 +81,7 @@ function resetGame() {
   startGame;
 }
 
+// Funcion Modal
 function modalResult(result) {
   if (result !== 'LOST') {
     emoji = '😁';
