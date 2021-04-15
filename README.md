@@ -35,3 +35,7 @@ que muestre cuántas veces ganó el jugador y cuántas la computadora.
 arranque en 0 - 0 y vaya sumando 1 cada vez que gana el jugador o la computadora.
 
 * [x] 2 - El primero que llega a 3 victorias es el ganador real.
+
+## Screenshot
+
+![screenshot](https://i.imgur.com/VGgu7Z7.png)
